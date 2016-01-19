@@ -12,7 +12,7 @@
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    // arithmatic operations
+    // arithmetic operations
     int x = 5;
     int y = 7;
     int sum, difference, product, division, modulus, increment, decrement;
