@@ -2,5 +2,5 @@
 
 Lynda.com C Essential Training Series
 
-Left off at: 06_07
+Left off at: 07_01
 
