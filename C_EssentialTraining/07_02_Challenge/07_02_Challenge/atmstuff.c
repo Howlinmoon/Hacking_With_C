@@ -1,7 +1,9 @@
-//Global variables
-float accountBalance, amount;
-
+// Need to include our std lib stuff in here also!
 #include <stdio.h>
+#include <stdlib.h>
+
+// our global vars go here
+float accountBalance, amount;
 
 void initializeAccount(void){
     accountBalance = 0.0;

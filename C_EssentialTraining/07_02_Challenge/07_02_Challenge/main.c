@@ -6,11 +6,7 @@
 //  Copyright © 2016 Jim Veneskey. All rights reserved.
 //
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "atmstuff.h"
-//Global variables
-float accountBalance, amount;
+#include "transactions.h"
 
 
 int main(void) {
