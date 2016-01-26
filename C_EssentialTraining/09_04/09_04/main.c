@@ -18,8 +18,8 @@ void getInputData2(void);
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    getInputData1();
-    //getInputData2();
+    //getInputData1();
+    getInputData2();
     
     return EXIT_SUCCESS;
 }
@@ -44,3 +44,20 @@ void getInputData1(void) {
     printf("testVariable = %d\n", testVariable);
 }
 
+// using DO WHILE
+void getInputData2(void) {
+    char c = 'x';
+    int testVariable = 0;
+    
+    do {
+        testVariable = 999;
+        printf("Enter a letter please: ");
+        c = getchar();
+        printf("You entered: %c\n", c);
+        getchar();
+    } while (c != 'x');
+
+    printf("You entered 'x' and the loop exited\n");
+    printf("testVariable = %d\n", testVariable);
+    
+}
