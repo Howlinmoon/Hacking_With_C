@@ -7,9 +7,36 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+
+// function prototypes
+
+void printBar(int howLong);
+void graphData(int howMany);
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    printf("Hello, World!\n");
-    return 0;
+    printf("Preparing to graph a bunch of data\n");
+    graphData(10);
+    return EXIT_SUCCESS;
+}
+
+// function definitions
+void printBar(int howLong) {
+    int counter = 0;
+    printf("%3d:", howLong);
+    while (counter <= howLong) {
+        printf("#");
+        counter++;
+    }
+    // end the bar
+    printf("\n");
+}
+
+void graphData(int howMany) {
+    printf("Printing a total of %d bar graphs\n", howMany);
+    // make the lengths of the data multiples of 5 for variety
+    for (int currentBar = 1; currentBar <= howMany; currentBar++) {
+        printBar(currentBar * 5);
+    }
 }
