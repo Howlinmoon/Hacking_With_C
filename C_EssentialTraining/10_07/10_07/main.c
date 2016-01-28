@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
     
     searchHighMPG(34.0, mpgData, 10);
     
-    // bubbleSort(mpgData, 10);
+    bubbleSort(mpgData, 10);
     
     
     return EXIT_SUCCESS;
