@@ -37,6 +37,8 @@ void drawscr(void);
 void printat(int row, int column, char* text);
 void movetank(int direction);
 int badmove(int direction);
+void update(int tank);
+void erasetank(int tank);
 
 
 int main(void) {
@@ -58,30 +60,30 @@ int main(void) {
     
     /* Initialize BigMap array to all blanks     */
     
-    for(loopy=1; loopy<=84; loopy++)
-        for(loopx=1; loopx<=84; loopx++)
+    for(loopy=1; loopy<=84; loopy++) {
+        for(loopx=1; loopx<=84; loopx++) {
             bigmap[loopy][loopx]=' ';
+        }
+    }
     
-    for(loopy=1; loopy<=2; loopy++)
-        for(loopx=1; loopx<=84; loopx++)
-	       {
-               bigmap[loopy][loopx]='#';
-               bigmap[loopy+82][loopx]='#';
-           }
+    for(loopy=1; loopy<=2; loopy++) {
+        for(loopx=1; loopx<=84; loopx++) {
+            bigmap[loopy][loopx]='#';
+            bigmap[loopy+82][loopx]='#';
+        }
+    }
     
-    for(loopx=1; loopx<=2; loopx++)
-        for(loopy=1; loopy<=84; loopy++)
-        {
+    for(loopx=1; loopx<=2; loopx++) {
+        for(loopy=1; loopy<=84; loopy++) {
             bigmap[loopy][loopx]='#';
             bigmap[loopy][loopx+82]='#';
         }
+    }
     
-    
-    for(loopx=1; loopx<=8; loopx++)
-	   {
-           shields[loopx]=100;
-           twas[loopx]='B';
-       }
+    for(loopx=1; loopx<=8; loopx++) {
+        shields[loopx]=100;
+        twas[loopx]='B';
+    }
     
     /*********** Main programming starts here ***********/
     
@@ -264,61 +266,56 @@ void movetank(int direction) {
 int badmove(int direction) {
     if (direction == LEFT  && tankx[tank] > 1) {
         return(0);
-    } else if(direction == LEFT && (! (tankm[tank] % 2))) {
-        tankx[tank]=40;
-        tankm[tank]=tankm[tank]-1;
+    } else if (direction == LEFT && (! (tankm[tank] % 2))) {
+        tankx[tank] = 40;
+        tankm[tank] = tankm[tank] - 1;
         return(2); /* Tank was on edge but EVEN map - adjust and ok */
-        }
-        else
-            if(direction == LEFT)
-                return(1); /* Tank was on edge of an ODD map - bad news!  */
     
-    if(direction == RIGHT && tankx[tank] < 40)
+    } else if (direction == LEFT) {
+        return(1); /* Tank was on edge of an ODD map - bad news!  */
+    
+    } else if (direction == RIGHT && tankx[tank] < 40) {
         return(0);  /* Tank was not on edge.  */
-    else
-        if(direction == RIGHT && (tankm[tank] % 2))
-        {
-            tankx[tank]=1;
-            tankm[tank]=tankm[tank]+1;
-            return(2); /* Tank was on ODD map edge - adjust and ok */
-        }
-        else
-            if(direction == RIGHT)
-                return(1);  /* Tank was on edge of EVEN map - bad news! */
+        
+    } else if (direction == RIGHT && (tankm[tank] % 2)) {
+        tankx[tank] = 1;
+        tankm[tank] = tankm[tank] + 1;
+        return(2); /* Tank was on ODD map edge - adjust and ok */
     
-    if(direction == UP && tanky[tank] > 1)
+    } else if(direction == RIGHT) {
+        return(1);  /* Tank was on edge of EVEN map - bad news! */
+    
+    } else if (direction == UP && tanky[tank] > 1) {
         return(0);  /* Tank was not at edge.  */
-    else
-        if(direction == UP && tankm[tank] > 2)
-        {
-            tanky[tank]=20;
-            tankm[tank]=tankm[tank]-2;
-            return(2);  /* tank rose a map - adjust and ok */
-        }
-        else
-            if(direction == UP)
-                return(1); /* Tank tried to go off top of map */
     
-    if(direction == DOWN && tanky[tank] < 20)
+    } else if(direction == UP && tankm[tank] > 2) {
+        tanky[tank] = 20;
+        tankm[tank] = tankm[tank] - 2;
+        return(2);  /* tank rose a map - adjust and ok */
+    
+    } else if (direction == UP ) {
+        return(1); /* Tank tried to go off top of map */
+        
+    } else if (direction == DOWN && tanky[tank] < 20) {
         return(0);  /* Tank was not at edge. */
-    else
-        if(direction == DOWN && tankm[tank] < 7)
-        {
-            tanky[tank]=1;
-            tankm[tank]=tankm[tank]+2;
-            return(2);  /* tank descended a map */
-        }
-        else
-            if(direction == DOWN)
-                return(1); /* Tank was on bottom.... */
     
-    return(0); /* this line should not be needed logically */
+    } else if(direction == DOWN && tankm[tank] < 7) {
+        tanky[tank]=1;
+        tankm[tank]=tankm[tank]+2;
+        return(2);  /* tank descended a map */
+    
+    } else if(direction == DOWN) {
+        return(1); /* Tank was on bottom.... */
+        
+    } else {
+        /* all possibilities *SHOULD* be covered by now..
+         but - just in case...  */
+        return(0);
+    }
 }
 
 /*  UpdateTank(tank #) - updates display of tanks moves   */
-update(tank)
-int tank;
-{
+void update(int tank) {
     convert(tanky[tank],tankx[tank],tankm[tank]);
     twas[tank]=bigmap[realy] [realx];
     if((twas[tank] !='B') && (twas[tank] != 'D'))
@@ -333,34 +330,33 @@ int tank;
     wprintw(stdscr,"Contents of TWAS is %c",twas[tank]);
     move(10,10);
     wprintw(stdscr,"Tank # = %d",tank);
-    return(0);
     
 }
+
+
 /*  ERASETANK(tank #) - removes old image of tanks from screen */
-erasetank(tank)
-int tank;
-{
+void erasetank(int tank) {
     convert(tanky[tank],tankx[tank],tankm[tank]);
     bigmap[realy] [realx]=twas[tank];
-    if(tankm[tank] == map)
-    {
+    if(tankm[tank] == map) {
         move(tankx[tank]+39,tanky[tank]+1);
         wprintw(stdscr,"%c",twas[tank]);
     }
-    return(0);
 }
+
 /* ShowTank(tank #) - Displays currently selected tank IF on current map */
-showtank(tank)
-int tank;
-{
+void showtank( int tank ) {
     int a,b,c,d;
-    if(tankm[tank] == map)
-    {
-        if(tankx[tank]==1)
+    if (tankm[tank] == map) {
+        if (tankx[tank] == 1) {
             a=0;
-        else if(tankx[tank]==2)
+        
+        } else if (tankx[tank] == 2) {
             a=1;
-        else a=2;
+        
+        } else {
+            a=2;
+        }
         
         if(tankx[tank]==40)
             c=0;
