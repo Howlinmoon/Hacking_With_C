@@ -19,15 +19,13 @@ int main(int argc, char *argv[]) {
 	noecho();
 	curs_set(FALSE); // disable the cursor
 
-	// Global 'stdscr' was created by calling 'initscr()'
-	getmaxyx(stdscr, max_y, max_x);
-	// display our current maximums roughly in the middle
-	mvprintw(max_y/2, max_x/2, "Max X: %d, Y: %d", max_x, max_y);
-	refresh();
-	sleep(10);
 	
 	while(1) {
 		clear(); // clear the screen
+		// Global 'stdscr' was created by calling 'initscr()'
+		getmaxyx(stdscr, max_y, max_x);
+		// display our current maximums roughly in the middle
+		mvprintw(max_y/2, max_x/2, "Max X: %d, Y: %d", max_x, max_y);
 		mvprintw(y, x, "o");  // print our 'ball' at the current x,y position (note y before x!)
 		refresh(); // needed to actually update the screen
 
