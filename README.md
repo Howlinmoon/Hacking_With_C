@@ -2,5 +2,5 @@
 
 Lynda.com C Essential Training Series
 
-Left off at: 14_06
+Left off at: 14_08
 
