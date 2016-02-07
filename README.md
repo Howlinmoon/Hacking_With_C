@@ -2,5 +2,5 @@
 
 Lynda.com C++ Essential Training Series
 
-Left off at: 02_06
+Left off at: 02_07
 
