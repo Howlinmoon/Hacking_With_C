@@ -8,16 +8,26 @@
 
 
 #include <stdio.h>
-//#include "func.h"
+#include "func.h"
 
 // Defined a function prior to using it
-void func();
+// void func();
+
 
 int main( int argc, char ** argv ) {
-	printf("Hello, World!\n");
-	func();
+    int i = 42;
+    for (int i = 1; i <= 5; i++) {
+        // display inner i values
+        printf("variable i is %d\n", i);
+    }
+    // display outter i value
+    printf("variable i is %d\n", i);
+
+    func();
 	return 0;
 }
+
+
 
 void func() {
     printf("this is in the function\n");
