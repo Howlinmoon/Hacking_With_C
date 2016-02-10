@@ -11,9 +11,16 @@
 int main(int argc, const char * argv[]) {
     // insert code here...
     // Declaring a null terminated C string the hard way
-    char s[] = { 's', 't', 'r', 'i', 'n', 'g', 0 };
+    char s1[] = { 's', 't', 'r', 'i', 'n', 'g', ' ', 'o', 'n', 'e', 0 };
+    
     // normal method
-    // char s[] = "string";
-    printf("string is: %s\n", s);
+    char s2[] = "string two";
+    printf("string1 is: %s\n", s1);
+    printf("string2 is: %s\n", s2);
+    
+    // print a string character by character
+    for (int i = 0; s2[i] != 0; i++) {
+        printf("char[%d] is %c\n", i, s2[i]);
+    }
     return 0;
 }
