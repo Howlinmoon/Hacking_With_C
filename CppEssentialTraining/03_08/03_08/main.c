@@ -22,5 +22,15 @@ int main(int argc, const char * argv[]) {
     for (int i = 0; s2[i] != 0; i++) {
         printf("char[%d] is %c\n", i, s2[i]);
     }
+    
+    // doing the same thing - but using a pointer
+    // the for loops test is simply checking for non-zero (True) values
+    // it will terminate when it hits the null terminator
+    // less verbose for loop: (implicit non-zero check)
+    // for (char *cp = s1; *cp; cp++) {
+    
+    for (char *cp = s1; *cp != 0; cp++) {
+        printf("pointer is pointing to: %c\n", *cp);
+    }
     return 0;
 }
