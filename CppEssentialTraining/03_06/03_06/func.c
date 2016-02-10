@@ -1,6 +1,6 @@
 //
 //  main.c
-//  03_06 - Declaring variables and functiond
+//  03_06 - Declaring variables and functions prior to being used
 //
 //  Created by Jim Veneskey on 2/6/16.
 //  Copyright © 2016 Jim Veneskey. All rights reserved.
