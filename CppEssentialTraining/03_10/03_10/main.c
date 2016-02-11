@@ -21,7 +21,6 @@ int main(int argc, const char * argv[]) {
             break;
         case 3:
             printf("three\n");
-            break;
         case 4:
             printf("four\n");
             break;
