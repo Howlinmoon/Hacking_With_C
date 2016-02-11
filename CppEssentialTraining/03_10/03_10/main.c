@@ -8,22 +8,31 @@
 
 #include <stdio.h>
 
+#define ONE (1)
+#define TWO (2)
+#define THREE (3)
+#define FOUR (4)
+
+
 int main(int argc, const char * argv[]) {
     // insert code here...
 
-    int foo = 3;
+    int foo = 5;
     switch (foo) {
-        case 1:
+        case ONE:
             printf("one\n");
             break;
-        case 2:
+        case TWO:
             printf("two\n");
             break;
-        case 3:
+        case THREE:
             printf("three\n");
-        case 4:
+            break;
+        case FOUR:
             printf("four\n");
             break;
+        default:
+            printf("the value is not 1, 2, 3 or 4\n");
     }
     
     return 0;
