@@ -7,22 +7,28 @@
 //
 
 #include <stdio.h>
-//#include "func.h"
+#include "func.h"
 
-int func(int something) {
-    printf("this is in the function\n");
-    // add 25 to the variable
-    something += 25;
-    printf("the function variable something is now %d\n", something);
-    return something + 10;
-}
 
 
 int main( int argc, char ** argv ) {
     // main says something
     printf("Hello, World!\n");
     
+    int y = 50;
+    printf("the value of y was %d\n", y);
+    int x = func(&y);
     // func says something
-    printf("the value of func something + 10 is %d\n", func(40));
+    printf("the value of x is %d\n", x);
+    printf("the value of y is now %d\n", y);
     return 0;
+}
+
+
+int func(int *something) {
+    printf("this is in the function\n");
+    // add 25 to the variable (y)
+    *something += 25;
+    printf("the function variable something is now %d\n", *something);
+    return 10;
 }
