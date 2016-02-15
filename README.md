@@ -2,8 +2,8 @@
 
 Lynda.com C++ Essential Training Series
 
-Left off at: 05_08
+Left off at: 05_10
 
-Examining the C++ reference type
+Introducing bit fields
 
 
