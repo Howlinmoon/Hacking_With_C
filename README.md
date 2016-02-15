@@ -2,8 +2,8 @@
 
 Lynda.com C++ Essential Training Series
 
-Left off at: 05_05
+Left off at: 05_08
 
-Examining C and C++ Strings
+Examining the C++ reference type
 
 
