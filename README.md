@@ -2,8 +2,9 @@
 
 Lynda.com C++ Essential Training Series
 
-Left off at: 05_14
+Left off at: 06_01
 
-Introducing the Void Type
+Exploring the assignment operator
+
 
 
