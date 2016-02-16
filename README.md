@@ -2,8 +2,8 @@
 
 Lynda.com C++ Essential Training Series
 
-Left off at: 05_10
+Left off at: 05_14
 
-Introducing bit fields
+Introducing the Void Type
 
 
